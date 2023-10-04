@@ -1,0 +1,12 @@
+1. example below search bar
+2. advanced search bug
+3. remove spaces in all searches
+4. tick box for coding parameter in advanced search
+5. filter parameters: transcript variants, expression pattern, cancer name,
+6. table export
+7. table captions
+8. add loading spinners
+8. drop down in navbar
+9. make text small
+
+interaction partner
