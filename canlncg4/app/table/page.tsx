@@ -100,6 +100,14 @@ const LncTable = () => {
                       x += 1;
                     }
 
+                    for (const alias of row.aliases) {
+                      aliases += alias.trim() + ", ";
+                      if (x % 3 === 0) {
+                        aliases += "\n";
+                      }
+                      y += 1;
+                    }
+
                     return (
                       <Tr
                         key={row.lncrna_name + row.cancer_name + row.pubmed_id}
@@ -161,7 +169,7 @@ const LncTable = () => {
                             maxWidth: "200px",
                           }}
                         >
-                          {methods}
+                          {aliases}
                         </Td>
                       </Tr>
                     );

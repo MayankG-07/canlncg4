@@ -1,8 +1,8 @@
-// File: C:\DATA\Code\IITGN\CanlncG4\canlncg4\app\advanced-search\page.tsx
-import * as entry from '../../../../app/advanced-search/page.js'
+// File: C:\DATA\Code\IITGN\CanlncG4\canlncg4\app\table\page.tsx
+import * as entry from '../../../../app/table/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../app/advanced-search/page.js')
+type TEntry = typeof import('../../../../app/table/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
