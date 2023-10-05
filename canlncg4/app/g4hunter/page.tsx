@@ -379,6 +379,7 @@ const G4Hunter = () => {
           )}
         </Card>
       ) : null}
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
     </>
   );
 };

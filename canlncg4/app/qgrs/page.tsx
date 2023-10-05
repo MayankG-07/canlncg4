@@ -418,6 +418,7 @@ const QGRS = () => {
           )}
         </Card>
       ) : null}
+      <br /><br /><br /><br /><br /><br /><br /><br /><br />
     </>
   );
 };

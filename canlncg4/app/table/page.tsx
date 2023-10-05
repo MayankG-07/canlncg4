@@ -27,18 +27,18 @@ const LncTable = () => {
   const type = searchParams.get("type");
   const payload = searchParams.get("payload");
 
-  const [data, setData] = useState<
-    | {
-        lncrna_name: string;
-        cancer_name: string;
-        methods: string;
-        num_transcript_variants: string | number;
-        pubmed_id: string;
-        expression_pattern: string;
-        aliases: string[];
-      }[]
-    | null
-  >(null);
+        const [data, setData] = useState<
+          | {
+              lncrna_name: string;
+              cancer_name: string;
+              methods: string;
+              num_transcript_variants: string | number;
+              pubmed_id: string;
+              expression_pattern: string;
+              aliases: string[];
+            }[]
+          | null
+        >(null);
 
   useEffect(() => {
     axios
@@ -63,7 +63,7 @@ const LncTable = () => {
           {!data ? (
             <>Loading...</>
           ) : (
-            <TableContainer overflowX="visible">
+            <TableContainer whiteSpace="normal">
               <Table variant="simple">
                 <Thead>
                   <Tr>
