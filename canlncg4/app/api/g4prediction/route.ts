@@ -9,7 +9,7 @@ export const GET = async (req: Request, res: Response) => {
 
     console.log(lncrnaName);
     const result = await con.query(
-      `SELECT lncrna_name, num_transcript_variants, ncbi_ref_id FROM qgrs_g4 WHERE LOWER(lncrna_name)='${lncrnaName?.toLowerCase()}'`
+      `SELECT lncrna_name, num_transcript_variants, ncbi_access_num FROM qgrs_g4 WHERE LOWER(lncrna_name)='${lncrnaName?.toLowerCase()}'`
     );
 
     await disconnect(con);

@@ -142,10 +142,10 @@ const G4Hunter = () => {
     <>
       <Card sx={{ mt: 5, mx: 7 }}>
         <CardHeader sx={{ fontSize: 25, ml: 2, mb: 0 }}>
-          G4 Hunter Tool
+          G4Hunter Tool
         </CardHeader>
 
-        <CardBody>
+        {/* <CardBody>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. At eos,
           beatae ipsum illo, aut voluptas deleniti, rerum id nesciunt facilis
           molestiae! Quidem asperiores cupiditate, magni non facilis ad eaque!
@@ -153,7 +153,7 @@ const G4Hunter = () => {
           Similique dicta quod vitae dolore, commodi voluptatibus quaerat
           perferendis, tempora veritatis, laboriosam architecto! Quis, numquam
           at. Quidem enim nam dolores voluptatibus libero.
-        </CardBody>
+        </CardBody> */}
       </Card>
 
       <Card sx={{ mt: 5, mx: 7 }}>

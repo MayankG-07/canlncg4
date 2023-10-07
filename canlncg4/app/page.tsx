@@ -431,9 +431,9 @@ const Home = () => {
               }}
               className={styles.parent}
             >
-              <img src="/male.png" alt="male" width="100%" />
+              <img src="/male_new.png" alt="male" width="100%" />
               <object
-                data="/male_trace.svg"
+                data="/male_trace_new.svg"
                 type="image/svg+xml"
                 // width="500"
                 // height="600"
@@ -459,7 +459,7 @@ const Home = () => {
             >
               <img src="/female_new.png" alt="female" width="100%" />
               <object
-                data="/male_trace_new.svg"
+                data="/female_trace_new.svg"
                 type="image/svg+xml"
                 // width="500"
                 // height="600"

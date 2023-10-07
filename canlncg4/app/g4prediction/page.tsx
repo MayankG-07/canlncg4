@@ -40,6 +40,7 @@ import { useEffect, useState } from "react";
 const G4Prediction = () => {
   const searchParams = useSearchParams();
   const lncrnaName = searchParams.get("lncrna_name");
+  const [totalTranscriptVariants, setTotalTranscriptVariants] = useState(0);
   const [tableData, setTableData] = useState<any>(null);
   const [firstSearch, setFirstSearch] = useState<string | null>(null);
   const [secondSearch, setSecondSearch] = useState<string | null>(null);
@@ -102,7 +103,14 @@ const G4Prediction = () => {
   useEffect(() => {
     axios
       .get(`/api/g4prediction`, { params: { lncrnaName } })
-      .then((res) => setTableData(res.data))
+      .then((res) => {setTableData(res.data)
+        let total_variants = 0;
+      res.data.map((row: {
+        lncrna_name: string;
+        num_transcript_variants: number;
+        ncbi_access_num: string;})=>total_variants+=row.num_transcript_variants
+      )
+      setTotalTranscriptVariants(total_variants)})
       .catch((err) => {
         console.log(err);
         setTableData([]);
@@ -143,10 +151,7 @@ const G4Prediction = () => {
           {lncrnaName}
         </CardHeader>
         <CardBody>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsa
-          alias, ipsam eius atque sunt hic enim, dolorum deserunt reprehenderit
-          ullam quo quod. Recusandae temporibus consequuntur dicta, deleniti
-          cumque est!
+          Total no. of transcript variants (lncRNAs): {totalTranscriptVariants}
         </CardBody>
       </Card>
 
@@ -169,29 +174,29 @@ const G4Prediction = () => {
                     (row: {
                       lncrna_name: string;
                       num_transcript_variants: number;
-                      ncbi_ref_id: string;
-                    }) => (
-                      <Tr>
+                      ncbi_access_num: string;
+                    }) => {
+                      return <Tr>
                         <Td>{row.lncrna_name}</Td>
                         <Td sx={{ textAlign: "center" }}>
                           {row.num_transcript_variants}
                         </Td>
                         <Td sx={{ textAlign: "center" }}>
                           <Link
-                            href={`https://www.ncbi.nlm.nih.gov/nuccore/${row.ncbi_ref_id}`}
+                            href={`https://www.ncbi.nlm.nih.gov/nuccore/${row.ncbi_access_num}`}
                             target="_blank"
                             isExternal
                           >
-                            {row.ncbi_ref_id}
+                            {row.ncbi_access_num}
                             <ExternalLinkIcon sx={{ ml: 2 }} />
                           </Link>
                         </Td>
                         <Td sx={{ textAlign: "center" }}>
-                          {firstSearch !== `qgrs_${row.ncbi_ref_id}` &&
-                          secondSearch !== `qgrs_${row.ncbi_ref_id}` ? (
+                          {firstSearch !== `qgrs_${row.ncbi_access_num}` &&
+                          secondSearch !== `qgrs_${row.ncbi_access_num}` ? (
                             <Button
                               bg="blue.500"
-                              id={`qgrs_${row.ncbi_ref_id}`}
+                              id={`qgrs_${row.ncbi_access_num}`}
                               sx={{
                                 _hover: {},
                                 _active: {},
@@ -200,10 +205,10 @@ const G4Prediction = () => {
                               }}
                               onClick={async (_e) => {
                                 if (firstSearch === null) {
-                                  setFirstSearch(`qgrs_${row.ncbi_ref_id}`);
+                                  setFirstSearch(`qgrs_${row.ncbi_access_num}`);
                                   await axios
                                     .post("/api/qgrs", {
-                                      inputString: row.ncbi_ref_id,
+                                      inputString: row.ncbi_access_num,
                                       maxLen: QGRSOptions.maxLen,
                                       minGLen: QGRSOptions.minGLen,
                                       loopMin: QGRSOptions.loopMin,
@@ -290,10 +295,10 @@ const G4Prediction = () => {
                                       );
                                     });
                                 } else {
-                                  setSecondSearch(`qgrs_${row.ncbi_ref_id}`);
+                                  setSecondSearch(`qgrs_${row.ncbi_access_num}`);
                                   await axios
                                     .post("/api/qgrs", {
-                                      inputString: row.ncbi_ref_id,
+                                      inputString: row.ncbi_access_num,
                                       maxLen: QGRSOptions.maxLen,
                                       minGLen: QGRSOptions.minGLen,
                                       loopMin: QGRSOptions.loopMin,
@@ -390,7 +395,7 @@ const G4Prediction = () => {
                               colorScheme="red"
                               sx={{ width: "100px" }}
                               onClick={(_e) =>
-                                firstSearch === `qgrs_${row.ncbi_ref_id}`
+                                firstSearch === `qgrs_${row.ncbi_access_num}`
                                   ? setFirstSearch(null)
                                   : setSecondSearch(null)
                               }
@@ -400,11 +405,11 @@ const G4Prediction = () => {
                           )}
                         </Td>
                         <Td sx={{ textAlign: "center" }}>
-                          {firstSearch !== `g4_${row.ncbi_ref_id}` &&
-                          secondSearch !== `g4_${row.ncbi_ref_id}` ? (
+                          {firstSearch !== `g4_${row.ncbi_access_num}` &&
+                          secondSearch !== `g4_${row.ncbi_access_num}` ? (
                             <Button
                               bg="blue.500"
-                              id={`g4_${row.ncbi_ref_id}`}
+                              id={`g4_${row.ncbi_access_num}`}
                               sx={{
                                 _hover: {},
                                 _active: {},
@@ -412,15 +417,15 @@ const G4Prediction = () => {
                                 width: "100px",
                               }}
                               isDisabled={
-                                firstSearch === `g4_${row.ncbi_ref_id}` ||
-                                secondSearch === `g4_${row.ncbi_ref_id}`
+                                firstSearch === `g4_${row.ncbi_access_num}` ||
+                                secondSearch === `g4_${row.ncbi_access_num}`
                               }
                               onClick={async (_e) => {
                                 if (firstSearch === null) {
-                                  setFirstSearch(`g4_${row.ncbi_ref_id}`);
+                                  setFirstSearch(`g4_${row.ncbi_access_num}`);
                                   await axios
                                     .post("/api/g4hunter", {
-                                      inputString: row.ncbi_ref_id,
+                                      inputString: row.ncbi_access_num,
                                       windowSize: G4Options.windowSize,
                                       threshold: G4Options.threshold,
                                     })
@@ -510,10 +515,10 @@ const G4Prediction = () => {
                                       console.log(err);
                                     });
                                 } else {
-                                  setSecondSearch(`g4_${row.ncbi_ref_id}`);
+                                  setSecondSearch(`g4_${row.ncbi_access_num}`);
                                   await axios
                                     .post("/api/g4hunter", {
-                                      inputString: row.ncbi_ref_id,
+                                      inputString: row.ncbi_access_num,
                                       windowSize: G4Options.windowSize,
                                       threshold: G4Options.threshold,
                                     })
@@ -613,7 +618,7 @@ const G4Prediction = () => {
                               colorScheme="red"
                               sx={{ width: "100px" }}
                               onClick={(_e) =>
-                                firstSearch === `g4_${row.ncbi_ref_id}`
+                                firstSearch === `g4_${row.ncbi_access_num}`
                                   ? setFirstSearch(null)
                                   : setSecondSearch(null)
                               }
@@ -623,7 +628,7 @@ const G4Prediction = () => {
                           )}
                         </Td>
                       </Tr>
-                    )
+}
                   )}
                 </Tbody>
               </Table>

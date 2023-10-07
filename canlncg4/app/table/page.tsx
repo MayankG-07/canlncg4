@@ -24,25 +24,30 @@ const LncTable = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
+  const cancer_type = searchParams.get("cancer_type");
   const type = searchParams.get("type");
   const payload = searchParams.get("payload");
 
-        const [data, setData] = useState<
-          | {
-              lncrna_name: string;
-              cancer_name: string;
-              methods: string;
-              num_transcript_variants: string | number;
-              pubmed_id: string;
-              expression_pattern: string;
-              aliases: string[];
-            }[]
-          | null
-        >(null);
+  const [data, setData] = useState<
+    | {
+        lncrna_name: string;
+        cancer_name: string;
+        methods: string;
+        num_transcript_variants: string | number;
+        pubmed_id: string;
+        expression_pattern: string;
+        aliases: string[];
+      }[]
+    | null
+  >(null);
 
   useEffect(() => {
     axios
-      .get("/api/tableDetails", { params: { type, payload: payload?.trim() } })
+      .get("/api/tableDetails", {
+        params: cancer_type
+          ? { cancer_type }
+          : { type, payload: payload?.trim() },
+      })
       .then((res) => {
         console.log(res.data);
         setData(res.data);
@@ -157,7 +162,13 @@ const LncTable = () => {
                               _active: {},
                               color: "#ffffff",
                             }}
-                            onClick={() => router.push(`/sub-cellular-graphs?lncrna_name=${encodeURIComponent(row.lncrna_name)}`)}
+                            onClick={() =>
+                              router.push(
+                                `/sub-cellular-graphs?lncrna_name=${encodeURIComponent(
+                                  row.lncrna_name
+                                )}`
+                              )
+                            }
                           >
                             Details
                           </Button>
