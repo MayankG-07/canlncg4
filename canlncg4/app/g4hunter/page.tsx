@@ -25,8 +25,10 @@ import {
   Tbody,
   Divider,
   Td,
+  Link,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 const G4Hunter = () => {
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -379,7 +381,34 @@ const G4Hunter = () => {
           )}
         </Card>
       ) : null}
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <Card sx={{ mt: 5, mx: 7 }}>
+        <CardBody sx={{textAlign:"center"}}>
+          Data curated from G4Hunter (
+          <Link
+            href="https://bioinformatics.ibp.cz/#/analyse/quadruplex"
+            target="_blank"
+            isExternal
+          >
+            https://bioinformatics.ibp.cz/#/analyse/quadruplex
+            <ExternalLinkIcon sx={{ ml: 2 }} />
+          </Link>
+          )
+        </CardBody>
+      </Card>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

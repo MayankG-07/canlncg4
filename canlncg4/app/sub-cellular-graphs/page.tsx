@@ -1,6 +1,7 @@
 "use client"
 
-import { Card, CardBody, CardHeader, Image, Text } from "@chakra-ui/react";
+import { Card, CardBody, CardHeader, Image, Text, Link } from "@chakra-ui/react";
+import {ExternalLinkIcon} from "@chakra-ui/icons"
 import { useSearchParams } from "next/navigation";
 
 const SubCellularPage = () => {
@@ -20,6 +21,20 @@ const SubCellularPage = () => {
             <Image sx={{ml: 8,mt:5}} src={`/subcellular-graphs/${lncrna_name}_dist.png`} />
         </CardBody>
     </Card>
+    <Card sx={{ mt: 5, mx: 7 }}>
+        <CardBody sx={{textAlign:"center"}}>
+        Data curated from lncATLAS (
+          <Link
+            href="https://lncatlas.crg.eu/"
+            target="_blank"
+            isExternal
+          >
+            https://lncatlas.crg.eu
+            <ExternalLinkIcon sx={{ ml: 2 }} />
+          </Link>
+          )
+        </CardBody>
+      </Card>
     </>
   )
 }

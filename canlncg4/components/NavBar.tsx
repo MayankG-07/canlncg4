@@ -109,20 +109,6 @@ export const NavBar = () => {
           </Button>
 
           <Button
-            onClick={() => router.push("/g4hunter")}
-            variant="link"
-            sx={{
-              // backgroundColor: "transparent",
-              // color: "#e2e1e1",
-              color: "#ffffff",
-
-              fontSize: 15,
-            }}
-          >
-            G4Hunter Tool
-          </Button>
-
-          <Button
             onClick={() => router.push("/qgrs")}
             variant="link"
             sx={{
@@ -139,7 +125,21 @@ export const NavBar = () => {
           </Button>
 
           <Button
-            onClick={() => router.push("/qgrs")}
+            onClick={() => router.push("/g4hunter")}
+            variant="link"
+            sx={{
+              // backgroundColor: "transparent",
+              // color: "#e2e1e1",
+              color: "#ffffff",
+
+              fontSize: 15,
+            }}
+          >
+            G4Hunter Tool
+          </Button>
+
+          <Button
+            onClick={() => router.push("/g4-interaction")}
             variant="link"
             sx={{
               // backgroundColor: "transparent",
@@ -218,7 +218,7 @@ export const NavBar = () => {
             Help
           </Button>
 
-          <Button
+          {/* <Button
             onClick={() => router.push("/about")}
             variant="link"
             sx={{
@@ -232,7 +232,7 @@ export const NavBar = () => {
             }}
           >
             About
-          </Button>
+          </Button> */}
         </Stack>
 
         <LinkBox sx={{ mr: "5px" }}>

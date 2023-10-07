@@ -24,9 +24,11 @@ import {
   Box,
   Text,
   Select,
+  Link
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import {ExternalLinkIcon} from "@chakra-ui/icons"
 
 const QGRS = () => {
   const [inputString, setInputString] = useState<string | null>(null);
@@ -418,6 +420,23 @@ const QGRS = () => {
           )}
         </Card>
       ) : null}
+      <Card sx={{ mt: 5, mx: 7 }}>
+        <CardBody sx={{textAlign:"center"}}>
+          Data curated from QGRS Mapper (
+          <Link
+            href="https://bioinformatics.ramapo.edu/QGRS/index.php"
+            target="_blank"
+            isExternal
+          >
+            https://bioinformatics.ramapo.edu/QGRS/index.php
+            <ExternalLinkIcon sx={{ ml: 2 }} />
+          </Link>
+          )
+        </CardBody>
+      </Card>
+      <br />
+      <br />
+      <br />
       <br /><br /><br /><br /><br /><br /><br /><br /><br />
     </>
   );

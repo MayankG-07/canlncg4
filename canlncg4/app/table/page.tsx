@@ -192,6 +192,26 @@ const LncTable = () => {
           )}
         </CardBody>
       </Card>
+
+      <Card sx={{ mt: 5, mx: 7 }}>
+        <CardBody sx={{ textAlign: "center" }}>
+          Data curated from Lnc2Cancer 3.0 (
+          <Link
+            href="https://bio-bigdata.hrbmu.edu.cn/lnc2cancer"
+            target="_blank"
+            isExternal
+          >
+            https://bio-bigdata.hrbmu.edu.cn/lnc2cancer
+            <ExternalLinkIcon sx={{ ml: 2 }} />
+          </Link>
+          ) and GeneCards (
+          <Link href="https://www.genecards.org/" target="_blank" isExternal>
+            https://www.genecards.org
+            <ExternalLinkIcon sx={{ ml: 2 }} />
+          </Link>
+          )
+        </CardBody>
+      </Card>
     </>
   );
 };
