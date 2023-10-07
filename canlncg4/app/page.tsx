@@ -86,7 +86,7 @@ const Home = () => {
         }
       `}</style>
 
-      <Card
+      <Card 
         sx={{
           mt: 5,
           mx: 7,

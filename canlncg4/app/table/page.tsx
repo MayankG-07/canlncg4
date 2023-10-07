@@ -157,6 +157,7 @@ const LncTable = () => {
                               _active: {},
                               color: "#ffffff",
                             }}
+                            onClick={() => router.push(`/sub-cellular-graphs?lncrna_name=${encodeURIComponent(row.lncrna_name)}`)}
                           >
                             Details
                           </Button>

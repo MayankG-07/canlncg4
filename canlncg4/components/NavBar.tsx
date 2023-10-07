@@ -151,7 +151,7 @@ export const NavBar = () => {
               fontSize: 15,
             }}
           >
-            G4 Interacting Partners
+             LncRNA-G4 Interacting Partner
           </Button>
 
           <Button
