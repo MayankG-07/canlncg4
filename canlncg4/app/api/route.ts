@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 
-export const GET = (req: NextApiRequest, res: NextApiResponse) => {
+
+export const GET = (req: Request, res: Response) => {
   return Response.json({ message: "hello world" }, { status: 200 });
 };

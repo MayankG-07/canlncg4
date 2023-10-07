@@ -1,4 +1,4 @@
-// File: C:\Users\anmol\Documents\GitHub\canlncg4\canlncg4\app\page.tsx
+// File: C:\DATA\Code\IITGN\CanlncG4\canlncg4\app\page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,7 +1,6 @@
 import { connect, disconnect } from "@utils/db";
-import type { NextApiRequest, NextApiResponse } from "next";
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (req: Request, res: Response) => {
   const url = new URL(req.url!);
   const lncrna = url.searchParams.get("lncrna");
   const cancer = url.searchParams.get("cancer");
@@ -48,9 +47,22 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     if (isCoding !== null) {
-      rows = rows.filter(
-        (row: any) => row.coding === (isCoding ? "yes" : "na")
+      const coding_con = await connect();
+      const coding_result = await con.query(
+        "SELECT lncrna_name FROM coding_lnc_rna"
       );
+      const coding_rows = coding_result.rows;
+      await disconnect(coding_con);
+
+      rows = rows.filter((row: any) => {
+        for (let i = 0; i < coding_rows.length; i++) {
+          if (coding_rows[i].lncrna_name === row.lncrna_name) {
+            return true;
+          }
+        }
+
+        return false;
+      });
     }
 
     // TODO
@@ -74,8 +86,6 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
         // TODO
       }
     }
-
-    // console.log(rows);
 
     return Response.json(rows, { status: 200 });
   } catch (err) {

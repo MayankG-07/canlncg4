@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/advanced-search": {},
+    "/api/g4hunter": {},
+    "/api/g4prediction": {},
+    "/api/glossary": {},
+    "/api/qgrs": {},
+    "/api": {},
+    "/api/search": {},
+    "/api/tableDetails": {}
+  }
+}

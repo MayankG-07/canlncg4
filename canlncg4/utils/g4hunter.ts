@@ -14,7 +14,7 @@ class G4 {
     if (input_type === "NCBI_ID") {
       const { seq, url } = await this.get_fasta_and_link(input);
       // console.log("seq: ", seq);
-      result = await this.get_g4hunter_data(seq, window_size, threshold);
+      result = await this.get_g4hunter_data(seq!, window_size, threshold);
     } else if (input_type === "seq") {
       result = await this.get_g4hunter_data(input, window_size, threshold);
     } else {

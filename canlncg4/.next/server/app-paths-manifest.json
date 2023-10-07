@@ -1,6 +1,22 @@
 {
+  "/_not-found": "app/_not-found.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
+  "/advanced-search/page": "app/advanced-search/page.js",
+  "/downloads/page": "app/downloads/page.js",
+  "/g4hunter/page": "app/g4hunter/page.js",
+  "/g4prediction/page": "app/g4prediction/page.js",
+  "/glossary/page": "app/glossary/page.js",
   "/new/page": "app/new/page.js",
+  "/qgrs/page": "app/qgrs/page.js",
   "/table/page": "app/table/page.js",
-  "/api/tableDetails/route": "app/api/tableDetails/route.js"
+  "/statistics/page": "app/statistics/page.js",
+  "/api/route": "app/api/route.js",
+  "/api/g4prediction/route": "app/api/g4prediction/route.js",
+  "/api/glossary/route": "app/api/glossary/route.js",
+  "/api/advanced-search/route": "app/api/advanced-search/route.js",
+  "/api/g4hunter/route": "app/api/g4hunter/route.js",
+  "/api/qgrs/route": "app/api/qgrs/route.js",
+  "/api/tableDetails/route": "app/api/tableDetails/route.js",
+  "/api/search/route": "app/api/search/route.js"
 }

@@ -1,4 +1,4 @@
-// File: C:\Users\anmol\Documents\GitHub\canlncg4\canlncg4\app\api\tableDetails\route.ts
+// File: C:\DATA\Code\IITGN\CanlncG4\canlncg4\app\api\tableDetails\route.ts
 import * as entry from '../../../../../app/api/tableDetails/route.js'
 import type { NextRequest } from 'next/server.js'
 

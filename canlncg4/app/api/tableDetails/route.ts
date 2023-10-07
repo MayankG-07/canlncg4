@@ -1,7 +1,6 @@
 import { connect, disconnect } from "@utils/db";
-import type { NextApiRequest, NextApiResponse } from "next";
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (req: Request, res: Response) => {
   const url = new URL(req.url!);
   const type = url.searchParams.get("type");
   const payload = url.searchParams.get("payload");
@@ -17,7 +16,7 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const con = await connect();
 
-      const result = await con.query(`SELECT * FROM lnc_rna LIMIT 4260`);
+      const result = await con.query(`SELECT * FROM lnc_rna`);
 
       let rows;
       if (type === "lncrna_name") {
@@ -28,6 +27,11 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
         );
       } else if (type === "lncrna_alias") {
         rows = result.rows.filter((row) => row.aliases.includes(payload));
+        // rows = rows.map(row=>{...row, aliases: row.aliases.join(", ")})
+      } else if (type === "cancer_type") {
+        rows = result.rows.filter(
+          (row) => row.cancer_type === payload.toLowerCase()
+        );
       } else {
         await disconnect(con);
         return Response.json(

@@ -1,7 +1,6 @@
 import { connect, disconnect } from "@utils/db";
-import type { NextApiRequest, NextApiResponse } from "next";
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async (req: Request, res: Response) => {
   const url = new URL(req.url!);
   const searchString = url.searchParams.get("searchString");
 

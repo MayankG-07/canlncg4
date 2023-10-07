@@ -1,0 +1,22 @@
+{
+  "/_not-found": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/advanced-search/page": "/advanced-search",
+  "/downloads/page": "/downloads",
+  "/g4hunter/page": "/g4hunter",
+  "/g4prediction/page": "/g4prediction",
+  "/glossary/page": "/glossary",
+  "/new/page": "/new",
+  "/qgrs/page": "/qgrs",
+  "/table/page": "/table",
+  "/statistics/page": "/statistics",
+  "/api/route": "/api",
+  "/api/g4prediction/route": "/api/g4prediction",
+  "/api/glossary/route": "/api/glossary",
+  "/api/advanced-search/route": "/api/advanced-search",
+  "/api/g4hunter/route": "/api/g4hunter",
+  "/api/qgrs/route": "/api/qgrs",
+  "/api/tableDetails/route": "/api/tableDetails",
+  "/api/search/route": "/api/search"
+}

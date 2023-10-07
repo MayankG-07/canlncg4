@@ -72,6 +72,13 @@ const searchParams = useSearchParams();
   useEffect(() => {
     // Fetch data using Axios
     axios.get("/api/tableDetails", { params: { type, payload: payload?.trim() } }).then((response) => {
+      // const data = response.data;
+      // const new_data = data.map(row=>{
+      //   lncrna_name: row.lncrna_name,
+      //   cancer_name: row.cancer_name,
+      //   methods: row.methods,
+
+      // })
       setData(response.data);
     });
   }, []);
