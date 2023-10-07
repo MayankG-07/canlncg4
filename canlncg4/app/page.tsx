@@ -148,14 +148,14 @@ const Home = () => {
             Example: LncRNA name: "
             <Link
               color="lightblue"
-              href="/new?type=lncrna_name&payload=MALAT1"
+              href="/table?type=lncrna_name&payload=MALAT1"
             >
               <b>MALAT1</b>
             </Link>
             " or Cancer name: "
             <Link
               color="lightblue"
-              href="/new?type=cancer_name&payload=colorectal%20cancer"
+              href="/table?type=cancer_name&payload=colorectal%20cancer"
             >
               <b>Colorectal Cancer</b>
             </Link>
@@ -224,7 +224,7 @@ const Home = () => {
                               justifyContent="flex-start"
                               onClick={() =>
                                 router.push(
-                                  `/new?type=${encodeURIComponent(
+                                  `/table?type=${encodeURIComponent(
                                     "lncrna_name"
                                   )}&payload=${encodeURIComponent(name)}`
                                 )
@@ -253,7 +253,7 @@ const Home = () => {
                                   justifyContent="flex-start"
                                   onClick={() =>
                                     router.push(
-                                      `/new?type=${encodeURIComponent(
+                                      `/table?type=${encodeURIComponent(
                                         "lncrna_alias"
                                       )}&payload=${encodeURIComponent(alias)}`
                                     )
@@ -274,7 +274,7 @@ const Home = () => {
                                 justifyContent="flex-start"
                                 onClick={() =>
                                   router.push(
-                                    `/new?type=${encodeURIComponent(
+                                    `/table?type=${encodeURIComponent(
                                       "lncrna_alias"
                                     )}&payload=${encodeURIComponent(alias)}`
                                   )
@@ -341,7 +341,7 @@ const Home = () => {
                                 justifyContent="flex-start"
                                 onClick={() =>
                                   router.push(
-                                    `/new?type=${encodeURIComponent(
+                                    `/table?type=${encodeURIComponent(
                                       "cancer_name"
                                     )}&payload=${encodeURIComponent(name)}`
                                   )
@@ -392,7 +392,7 @@ const Home = () => {
                             justifyContent="flex-start"
                             onClick={() =>
                               router.push(
-                                `/new?type=${encodeURIComponent(
+                                `/table?type=${encodeURIComponent(
                                   "lncrna_alias"
                                 )}&payload=${encodeURIComponent(alias)}`
                               )
