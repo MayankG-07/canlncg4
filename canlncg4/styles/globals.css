@@ -4,9 +4,9 @@
   margin: 0;
 }
 
-html::-webkit-scrollbar {
+/* html::-webkit-scrollbar {
   display: none;
-}
+} */
 
 html,
 body {

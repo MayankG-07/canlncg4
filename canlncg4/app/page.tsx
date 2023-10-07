@@ -144,14 +144,14 @@ const Home = () => {
           <Text sx={{ mt: 2 }}>
             Example: LncRNA name: "
             <Link
-              color="lightblue"
+              color="blue.500"
               href="/table?type=lncrna_name&payload=MALAT1"
             >
               <b>MALAT1</b>
             </Link>
             " or Cancer name: "
             <Link
-              color="lightblue"
+              color="blue.500"
               href="/table?type=cancer_name&payload=colorectal%20cancer"
             >
               <b>Colorectal Cancer</b>

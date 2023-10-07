@@ -108,7 +108,7 @@ const G4Prediction = () => {
       res.data.map((row: {
         lncrna_name: string;
         num_transcript_variants: number;
-        ncbi_access_num: string;})=>total_variants+=row.num_transcript_variants
+        ncbi_access_num: string;})=>total_variants = row.num_transcript_variants > total_variants ? row.num_transcript_variants : total_variants
       )
       setTotalTranscriptVariants(total_variants)})
       .catch((err) => {
