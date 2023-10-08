@@ -12,15 +12,46 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/help/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/help/page.css",
+      "static/chunks/app/help/page.js"
+    ],
     "/table/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/table/page.js"
     ],
-    "/not-found": [
+    "/downloads/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/app/downloads/page.js"
+    ],
+    "/statistics/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/statistics/page.js"
+    ],
+    "/g4-interaction/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/g4-interaction/page.js"
+    ],
+    "/qgrs/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/qgrs/page.js"
+    ],
+    "/g4hunter/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/g4hunter/page.js"
+    ],
+    "/glossary/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/glossary/page.js"
     ]
   }
 }
